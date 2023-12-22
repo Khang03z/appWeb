@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turtor Promax</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./script.js"></script>
+    <style>
+        /* CSS cho menu xổ xuống */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #4f0bce00;
+            min-width: 130px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content button{
+            white-space: nowrap;
+            font-size: medium;
+            min-width: 150px;
+            background-color: rgba(0, 0, 255, 0);
+            border: #4f0bce00;
+            color: red;
+            margin-left: 0px;
+            padding: 20px; 
+            text-decoration: none; 
+            text-align: left;
+        }
+        .dropdown-content a{
+            white-space: nowrap;
+            font-size: medium;
+            min-width: 150px;
+            background-color: rgba(0, 0, 255, 0);
+            border: #4f0bce00;
+            color: red;
+            margin-left: 0px;
+            padding: 0px; 
+            text-decoration: none; 
+            text-align: left;
+        }
+
+        .dropdown:hover .dropdown-content {
+            
+            display: block;
+        }
+        .dropdown-content button:hover{
+            background-color: aqua;
+        }
+        .welcomeUsername p{
+           
+            padding-top: 25px;
+            padding-left: 10px;
+            color: rgb(255, 153, 0);
+
+        }
+    </style>
+</head>
+
+<body>
+    
+    <header>
+        <a href="./index.html">
+            <span class="logo-img">
+                <img src="./image/canhcut.ico" alt="">
+            </span>
+            <span class="logo-text">
+                <span class="logo-text-tutoring">Tutor</span>
+                <span class="logo-text-prodigy">Promax</span>
+            </span>
+        </a>
+        
+        <div class="option" style="visibility:visible;">
+            <button class="for-GS">Đăng ký làm gia sư</button>
+            <button class="Reg-GS" id = "test">Đăng ký thuê gia sư</button>
+        </div>
+        <div class="dropdown" style="visibility: hidden;">
+            <span class="logo-user">
+                <img src="./image/useravt.jpg" alt="">
+            </span>
+            <div class="dropdown-content">
+                <a id="ref_editprofile" href="">
+                    <button id="edit_profile">Chỉnh sửa hồ sơ</button>
+                </a>
+                <a id="quanlylop" href="">
+                    <button id = "btn_createClass" >Quản lý lớp</button>
+                </a>
+                
+                <button id="btn_registeredClass">Lớp đã đăng ký</button>
+                
+                <button id="logoutButton">Đăng xuất</button>
+            </div>
+        </div>
+        <div class ="welcomeUsername" style="visibility: hidden;">
+            <p id="username-login">Username</p>
+        </div>
+        
+        
+            
+       
+    </header>
+
+    <div class="nav-header">
+            <ul class="menu-nav">
+                <li class="nav-item">
+                    <a id ="linkHome" href="./index.html">
+                        <span>Trang chủ</span>
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a id = "linkService" href="./form_register.html">
+                        <span>Dịch vụ</span>
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a id ="linkNewClass" href="./form_register.html">
+                        <span>Danh sách lớp mới</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a id="linkContact" href="./form_register.html">
+                        <span>Liên hệ</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a id="linkBlog" href="./form_register.html">
+                        <span>Blog</span>
+                    </a>
+                </li>
+            </ul>
+    </div>
+
+    <div class="nav-introduction">
+
+        <div class="nav-intro1">
+            <img id="intro-img" src="./image/—Pngtree—teachers class on the school_3801808.png" alt="">
+
+            <div class="">
+                <div id="intro-text">
+                    <h2>Bạn là giáo viên, sinh viên ?</h2>
+                    <p>Gia nhập đội ngũ gia sư của Tutor Promax, nhận lớp và có thêm thu nhập 
+                        từ những kiến thức, kỹ năng giảng dạy của bạn.</p>
+                </div>
+                <div class="intro-option">
+                    <a href="./form_register.html">> Đăng ký ngay tại đây</a>
+                </div>
+            </div>
+                    
+        </div>
+        <div class="nav-intro2">
+            <div class="">
+                <div id="intro-text">
+                    <h2>Bạn cần thuê gia sư ?</h2>
+
+                    <h3>Trải nghiệm những buổi học thật chất lượng và chuyên nghiệp !</h3>
+                    <p>Bạn muốn củng cố kiến thức ? Bạn muốn tìm một gia sư cùng với một khóa học thật
+                        chất lượng ? Tutor promax luôn làm việc chuyên nghiệp và trách nhiệm, bắt đầu từ 
+                        việc tuyển chọn đến đào tạo gia sư. Đảm bảo gia sư luôn đạt tiêu chuẩn về kiến thức và kĩ năng giảng dạy.
+                    </p>
+                </div>
+                <div class="intro-option">
+                    <a href="./form_register.html">> Đăng ký thuê gia sư tại đây</a>
+                    
+                </div>
+            </div>
+
+            <img id="intro-img" src="./image/image2.jpg" alt="">
+                    
+        </div>
+
+        <div class="nav-intro3">
+            <h2>TẠI SAO NÊN CHỌN TUTOR PROMAX ? </h2>
+
+            <div class="intro-benefit">
+                <div class="benefit">
+                    <img src="./icon/loudspeaker.png" alt="">
+                    <h3>Dạy hiệu quả</h3>
+                    <p>Gia sư tại Tutor promax luôn biết cách tạo động lực cho học viên bằng các phương pháp 
+                        giảng dạy thú vị, dễ hiểu và hiệu quả.
+                    </p>
+                </div>
+
+                <div class="benefit">
+                    <img src="./icon/read.png" alt="">
+                    <h3>Tiến bộ nhanh</h3>
+                    <p>Với gia sư giỏi tại tutor, học viên sẽ nhanh chóng học tập tiến bộ, có kết quả khác biệt.
+                    </p>
+                </div>
+
+                <div class="benefit">
+                    <img src="./icon/salary.png" alt="">
+                    <h3>Tiết kiệm tiền</h3>
+                    <p>Đến với tutor promax, học viên sẽ được học thử 2 buổi nếu không hài lòng về gia sư, 
+                        bạn không cần phải thanh toán học phí.
+                        Và tutor promax luôn có các chương trình khuyến mãi trong năm.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="nav-intro4">
+            <h2>NHỮNG LỢI ÍCH MÀ HỌC VIÊN CÓ ĐƯỢC </h2>
+            <div class="list-advantage">
+                <ul>
+                    <li>
+                        <img src="./icon/checkmark.png" alt="">
+                        Không phải mất công đi lại, gia sư đến dạy ngay tại nhà.
+                    </li>
+                    <li>
+                        <img src="./icon/checkmark.png" alt="">
+                        Linh hoạt trong việc lựa chọn gia sư.
+                    </li>
+                </ul>
+
+                <ul>
+                    <li>
+                        <img src="./icon/checkmark.png" alt="">
+                        Học viên được học 1-1, tạo nên chất lượng giảng dạy tốt nhất.
+                    </li>
+                    <li>
+                        <img src="./icon/checkmark.png" alt="">
+                        Đảm bảo chất lượng gia sư và an toàn cho học viên.
+                    </li>
+                </ul>
+
+                <ul>
+                    <li>
+                        <img src="./icon/checkmark.png" alt="">
+                        Tự chủ trong việc lựa chọn khung giờ học tập.
+                    </li>
+                    <li>
+                        <img src="./icon/checkmark.png" alt="">
+                        Đảm bảo chất lượng học tập xuyên suốt khóa học.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="nav-intro5">
+            
+            <h2>Dịch vụ tại Tutor Promax</h2>
+            <div class="list-service">
+                    <div class="service">
+                        <ul>
+                            <li>
+                                <img src="./icon/number-1.png" alt="">
+                                <span class="title">
+                                    Các môn phổ thông
+                                </span>
+
+                                <p>Bao gồm tất cả các môn trong chương trình phổ thông: Toán, Văn, Anh, Lý, Hóa, Sinh Sử, Địa, GDCD,...</p>
+                            </li>
+                            
+                            <li>
+                                <img src="./icon/two.png" alt="">
+                                <span class="title">
+                                    Các môn ngoại ngữ
+                                </span>
+
+                                <p>Bao gồm các loại ngôn ngữ: Anh, Nhật, Hàn, Pháp, Trung, Đức,... Chủ yếu mở các lớp luyện chứng chỉ ngoại ngữ như ielts, toeic,...</p>
+                            </li>
+
+                            <li>
+                                <img src="./icon/number-3.png" alt="">
+                                <span class="title">
+                                    Các môn năng khiếu
+                                </span>
+                                <p>Chủ yếu liên quan đến các môn nghệ thuật như: Piano, Guitar, Organ, Mỹ thuật, thanh nhạc.</p>
+                            </li>
+
+                            <li>
+                                
+                            </li>
+                        </ul>
+                    
+                    </div>
+                    <img src="./icon/classroom.png" alt="">
+            </div>
+        </div>   
+    </div>
+
+    <div class="nav-contact">
+            
+        <div class="contact">
+            <h3>Liên hệ với chúng tôi</h3>
+            <p>KP6, phường Linh Trung, TP Thủ Đức, TPHCM</p>
+            <p>012.345.6789</p>
+            <p>Tutorprovip@gmail.com</p>
+        </div>
+        
+        <div class="contact">
+            <h3>Về tutor promax</h3>
+            <p><a href="./main.html">Giới thiệu</a></p>
+            <p><a href="./contact.html">Liên hệ</a></p>
+            <p><a href="./contact.html">Chính sách bảo mật</a></p>
+        </div>
+
+        <div class="contact">
+            <h3>Kết nối với tutor promax</h3>
+            <p>Fanpage:tutorpromax1709</p>
+        </div>
+
+    </div>
+    
+</body>
+
+<script>
+    document.getElementById('test').addEventListener('click', function () {
+        fetch('http://localhost:3000/api/test_ss')
+            .then(response => response.text())
+            .then(data => {
+                console.log(data); // Log dữ liệu phản hồi từ API
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+
+
+    });
+    function handleSession() {
+        fetch('http://localhost:3000/api/authenticated_routes/user_info')
+            .then(response => response.json())
+            .then(data => {
+                
+                if (data.userId) {
+                    // Nếu đã đăng nhập
+                    document.querySelector('.option').style.visibility = 'hidden';// Ẩn phần option
+                    document.querySelector('.dropdown').style.visibility = 'visible'; // Hiển thị dropdown
+                    document.querySelector('.welcomeUsername p').innerText = data.username; // Hiển thị username
+                    document.querySelector('.welcomeUsername').style.visibility = 'visible'; // Hiển thị phần welcomeUsername
+                    if(data.role===0){
+                        document.getElementById('btn_createClass').style.display = 'none'; //ẩn với student
+                    }
+                    else{
+                        document.getElementById('btn_registeredClass').style.display = 'none'; //ẩn với tutor
+                    }
+
+                    //
+                    document.getElementById('linkService').href = './service.html';
+                    document.getElementById('linkNewClass').href = './class.html';
+                    document.getElementById('linkContact').href = './contact.html';
+                    document.getElementById('linkBlog').href = './blog.html';
+                    document.getElementById('ref_editprofile').href = './reg_GS.html'
+                    document.getElementById('quanlylop').href = './reg_class.html'
+                    
+                } else {
+                    // Nếu chưa đăng nhập
+                    document.querySelector('.option').style.visibility = 'visible'; // Hiển thị phần option
+                    document.querySelector('.dropdown').style.visibility = 'hidden'; // Ẩn dropdown
+                    document.querySelector('.welcomeUsername').style.visibility = 'hidden'; // Ẩn phần welcomeUsername
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+
+    // Gọi hàm kiểm tra session khi trang được load
+    document.addEventListener('DOMContentLoaded', handleSession);
+
+    //dang xuat
+    document.getElementById('logoutButton').addEventListener('click', function () {
+    // Gọi API logout
+    fetch('http://localhost:3000/api/logout', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    })
+    .then(response => response.json())
+    .then(result => {
+        console.log(result);
+
+        // Xóa cookie và session thành công, reload lại trang
+        if (result.message === 'Logout successful') {
+            window.location.reload();
+        } else {
+            // Hiển thị thông báo lỗi nếu có
+            alert('Đăng xuất không thành công.');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Đã xảy ra lỗi khi thực hiện đăng xuất.');
+    });
+});
+</script>
+    
+</html>

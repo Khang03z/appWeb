@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Tạo Lớp Mới</title>
+    <link rel="stylesheet" href="./css/createclass/styles.css">
+    <style>
+         .avt-setting{
+            display: flex;
+            
+
+        }
+        /* CSS cho menu xổ xuống */
+        .dropdown {
+            padding-left: 50%;
+            position: relative;
+            
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #4f0bce00;
+            min-width: 130px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content a{
+            white-space: nowrap;
+            font-size: medium;
+            min-width: 150px;
+            background-color: rgba(0, 0, 255, 0);
+            border: #4f0bce00;
+            color: red;
+            margin-left: 0px;
+            padding: 0px; 
+            text-decoration: none; 
+            text-align: left;
+        }   
+        .dropdown-content button{
+            white-space: nowrap;
+            font-size: medium;
+            min-width: 150px;
+            background-color: rgba(0, 0, 255, 0);
+            border: #0a0a0a00;
+            color: red;
+            margin-left: 0px;
+            padding: 20px; 
+            text-decoration: none; 
+            text-align: left;
+        }
+
+        .dropdown:hover .dropdown-content {
+            
+            display: block;
+        }
+        .dropdown-content button:hover{
+            background-color: aqua;
+        }
+        .welcomeUsername p{
+           
+            padding-top: 25px;
+            padding-left: 10px;
+            color: rgb(255, 153, 0);
+
+        }
+        .logo-user img{
+            display: inline-block;
+            vertical-align: middle;
+            padding-top: 15px;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0);
+            border-radius: 50%;
+            object-fit: cover; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="">
+            <span class="logo-img">
+                <img src="./image/canhcut.ico" alt="">
+            </span>
+            <span class="logo-text">
+                <span class="logo-text-tutoring">Tutor</span>
+                <span class="logo-text-prodigy">Promax</span>
+            </span>
+            
+        </a>
+        <div class="dropdown" style="visibility: hidden;">
+            <span class="logo-user">
+                <img src="./image/useravt.jpg" alt="">
+            </span>
+            <div class="dropdown-content" >
+                <a id="ref_editprofile" href="">
+                    <button id="edit_profile">Chỉnh sửa hồ sơ</button>
+                </a>
+                
+                <button id="btn_registeredClass">Lớp đã đăng ký</button>
+                <a id= ref_quanlylop href="">
+                    <button id = "btn_createClass" >Quản lý lớp học</button>
+                </a>
+                
+                <button id="logoutButton">Đăng xuất</button>
+            </div>
+            
+        </div>
+        <div class ="welcomeUsername" style="visibility: hidden;">
+            <p id="username-login">Username</p>
+        </div>
+
+       
+    </header>
+
+    <div class="nav-header">
+        <ul class="menu-nav">
+            <li class="nav-item">
+                <a href="./index.html">
+                    <span>Trang chủ</span>
+                </a>
+            </li>
+            
+            <li class="nav-item">
+                <a href="./service.html">
+                    <span>Dịch vụ</span>
+                </a>
+            </li>
+            
+            <li class="nav-item">
+                <a href="./class.html">
+                    <span>Danh sách lớp mới</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="./contact.html">
+                    <span>Liên hệ</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="./blog.html">
+                    <span>Blog</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+    <h1 style="padding:20px 20px;">Quản lí danh sách lớp</h1>
+    <div class="div_option" style="display: flex;">
+        <button class="Reg_class" onclick="openForm()">
+            Tạo lớp mới
+        </button>
+        <button id="filterNotExpired">Xem lớp còn hạn</button>
+        <button id="filterExpired">Xem lớp hết hạn</button>
+        <button id = "refresh">refresh</button>
+        
+
+    </div>
+    
+
+    <table class="class-table">
+        <thead>
+            <tr>
+                <th class="class-id">Class ID</th>
+                <th class="class-name">Tên lớp</th>
+                <th class="class-subject">Môn học</th>
+                <th class="class-time-start">Thời gian bắt đầu</th>
+                <th class="class-time-finish">Thời gian kết thúc</th>
+                <th class="class-link">Địa chỉ học viên</th>
+                <th class="class-status">Trạng thái đăng kí</th>
+                <th class="class-note">Ghi chú</th>
+                <th class="btnEdit">_______</th>
+            </tr>
+        </thead>
+        <tbody id="bodytable">
+            
+        </tbody>
+    </table>
+
+
+
+<div id="classForm">
+    <form id="createForm">
+        <label for="classID" style="display: none;" id="labelID">ClassID:</label> 
+        <input type="text" name="classID" id="classID" readonly="true" style="display: none;">
+        <label for="className">Tên lớp:</label>
+        <input type="text" id="className" name="className" required>
+
+        <label for="subject">Môn học:</label>
+        <select id="subject" name="subject">
+            <option value="">Chọn môn</option>
+            <option value="Anh">Anh văn</option>
+            <option value="Toán">Toán</option>
+            <option value="Văn">Ngữ văn</option>
+            <option value="Hóa">Hóa</option>
+            <option value="Lí">Lí</option>
+            <option value="Sinh">Sinh</option>
+            <option value="Sử">Sử</option>
+            <option value="Địa">Lí</option>
+            <option value="GDCD">GDCD</option>
+            <option value="Âm nhạc">Âm nhạc</option>
+            <option value="Khác">Khác</option>
+        </select>
+
+        <label for="grade">Khối:</label>
+        <input type="text" id="grade" name="grade" required>
+
+        <label for="price">Giá tiền:</label>
+        <input type="text" id="price" name="price" required>
+
+        <div class="timeinput">
+            <label for="startTime">Start:</label>
+            <input type="datetime-local" id="startTime" name="startTime" required>
+
+            <label id="endlabel" for="endTime">End:</label>
+            <input type="datetime-local" id="endTime" name="endTime" required>
+        </div>
+
+        <label for="details">Chi tiết:</label>
+        <textarea id="details" name="details" rows="4" required></textarea>
+
+        <label for="image">Tải ảnh lên:</label>
+        <input type="file" id="image" name="image" accept="image/*">
+        <div class="btn_flex_form" style="display: flex;">
+            <button id="btnSubmit" type="button" onclick="submitForm()" style="display: none;">Tạo lớp mới</button>
+            <button id="btnEditclass" type="button" style="display: none;">Edit</button>
+            <button id="btnDelclass" type="button"  style="display: none;">Delete</button>
+            <button type="button" onclick="closeForm()" style="margin-left: 15px;">Đóng</button>
+            
+        </div>
+        
+        
+    </form>
+
+    
+</div>
+
+
+
+<script src="./script/createclass/script.js"></script>
+<script>
+    function handleSession() {
+        fetch('http://localhost:3000/api/authenticated_routes/user_info')
+            .then(response => response.json())
+            .then(data => {
+                if(data.message ==='Unauthorized'){
+                    alert(data.message);
+                    window.location.replace('./index.html');
+                }
+                if (data.userId) {
+                    // Nếu đã đăng nhập
+                    
+                    document.querySelector('.dropdown').style.visibility = 'visible'; // Hiển thị dropdown
+                    document.querySelector('.welcomeUsername p').innerText = data.username; // Hiển thị username
+                    document.querySelector('.welcomeUsername').style.visibility = 'visible'; // Hiển thị phần welcomeUsername
+                    const educationSelect = document.getElementById('education');
+                    document.getElementById('ref_editprofile').href = './reg_GS.html'
+                    document.getElementById('ref_quanlylop').href = './reg_class.html'
+
+                    if(data.role===0){
+                        console.log(1234);
+                        document.getElementById('btn_createClass').style.display = 'none'; //ẩn với student
+                    }
+                    else{
+                        document.getElementById('btn_registeredClass').style.display = 'none'; //ẩn với tutor
+                    }
+                    
+
+                    
+                    
+                } else {
+                    // Nếu chưa đăng nhập
+                    
+                    document.querySelector('.dropdown').style.visibility = 'hidden'; // Ẩn dropdown
+                    document.querySelector('.welcomeUsername').style.visibility = 'hidden'; // Ẩn phần welcomeUsername
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+        // Kiểm tra session và load thông tin người dùng nếu đã đăng nhập
+        handleSession();
+    });
+
+    //Đăng xuất
+    document.getElementById('logoutButton').addEventListener('click', function () {
+    // Gọi API logout
+    fetch('http://localhost:3000/api/logout', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    })
+    .then(response => response.json())
+    .then(result => {
+        console.log(result);
+
+        // Xóa cookie và session thành công, reload lại trang
+        if (result.message === 'Logout successful') {
+            window.location.replace('./index.html');
+        } else {
+            // Hiển thị thông báo lỗi nếu có
+            alert('Đăng xuất không thành công.');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Đã xảy ra lỗi khi thực hiện đăng xuất.');
+    });
+});
+
+
+</script>
+</body>
+</html>

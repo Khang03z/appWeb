@@ -1,0 +1,218 @@
+
+
+*
+{
+    margin:0;
+    padding:0;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+header
+{
+    width: 100%;
+    height: 73px;
+    background-color: #112e51;
+}
+
+.logo-text
+{
+    display: inline-block;
+    font-size: 1.3rem;
+    line-height: 1;
+    font-style: normal;
+    font-weight: 700;
+    color: white;
+    margin-top: 24px;
+}
+
+.logo-img img
+{
+    display: inline-block;
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 50%;
+}
+a
+{
+    text-decoration: none;
+}
+
+header a
+{
+    cursor: pointer;
+    text-decoration: none;
+    margin-left: 300px;
+}
+.for-GS,.Reg-GS
+{
+    width: 189px;
+    height: 37px;
+    background-color: white;
+    padding:5px;
+    border-radius: 10px; 
+    cursor: pointer;
+    font-weight: 600;
+}
+.Reg-GS
+{
+    background-color: #face00;
+}
+.option
+{
+    display: inline-block;
+    margin-right: 300px;
+    margin-top: 19px;
+}
+
+.nav-header
+{
+    height: 40px;
+    align-items: center;
+    display: flex;
+    border-bottom:#d2d5e6 solid 0.5px ;
+}
+.menu-nav
+{
+    width: 100%;
+    margin-left: 300px;
+}
+.nav-item 
+{
+    display:inline-block;
+    margin-right: 30px;
+}
+
+.nav-item a
+{
+    color:#212121;
+    font-weight: 400;
+    text-decoration: none;
+    line-height: 1.3;
+    position: relative;
+}
+
+
+.registered-class-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.registered-class-table th, .registered-class-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.registered-class-table th {
+    background-color: #f2f2f2;
+}
+
+.rating-container {
+    display: flex;
+    align-items: center;
+}
+
+.star {
+    cursor: pointer;
+    margin-right: 5px;
+    font-size: 20px;
+}
+
+/* Style mặc định cho sao */
+.star:before {
+    content: '★';
+    color: gray;
+}
+
+
+.nav-contact {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+    background-color: #57ca87;
+    color: black;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.contact {
+    text-align: center;
+    padding: 15px;
+}
+
+.contact h3 {
+    color: black;
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
+}
+
+.contact a {
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s ease;
+}
+
+.contact a:hover {
+    color: orange;
+}
+
+.contact p {
+    margin: 5px 0;
+    color: black;
+}
+
+.contact:last-child {
+    padding: 15px;
+    border-radius: 8px;
+}
+
+nav {
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav li {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ecf0f1;
+}
+.cancel-button 
+{
+    background-color: #dc3545; /* Màu đỏ, có thể thay đổi theo sở thích của bạn */
+    color: #fff; /* Màu chữ trắng */
+    padding: 10px 20px; /* Kích thước đệm của nút */
+    border: none; /* Bỏ viền */
+    border-radius: 5px; /* Bo tròn góc */
+    cursor: pointer; /* Đổi con trỏ khi di chuột vào nút */
+    font-size: 16px; /* Kích thước chữ */
+    transition: background-color 0.3s ease; /* Hiệu ứng chuyển đổi màu nền */
+}
+footer {
+    position: fixed; /* hoặc sử dụng 'absolute' nếu bạn muốn footer nằm cuối cùng của nội dung trang */
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center; /* Căn giữa nội dung trong footer */
+
+}
+
+
+
+
+

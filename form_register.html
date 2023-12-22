@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/register/styles.css">
+</head>
+<body>
+    <h2>Đăng kí/ Đăng nhập</h2>
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form action="#">
+                <h1>Tạo tài khoản</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>hoặc sử dụng email để đăng kí</span>
+                <input type="text" id ="usrname_reg" placeholder="Name" />
+                <input type="email" id = "email_reg" placeholder="Email" />
+                <input type="password" id = "pass_reg" placeholder="Password" />
+
+
+                <div class="account-type-container">
+                    <input type="radio" name="accountType" id="tutor" value="tutor">
+                    <label for="tutor">Gia sư</label>
+                
+                    <input type="radio" name="accountType" id="student" value="student">
+                    <label for="student">Học sinh</label>
+                </div>
+
+                <button id ="registerButton" >Đăng kí</button>
+
+            </form>
+
+            
+            
+        </div>
+        <div class="form-container sign-in-container">
+            <form action="#">
+                <h1>Đăng nhập</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>hoặc sử dụng tài khoản của bạn</span>
+                <input type="email" id="loginEmail" placeholder="Email" />
+                <input type="password" id="loginPassword" placeholder="Password" />
+                <a href="#">Quên mật khẩu ?</a>
+                <button id ="loginButton">Đăng nhập</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Xin chào</h1>
+                    <p>Đăng nhập để nhận được ưu đãi mới nhất từ tutor promax nhé</p>
+                    <button class="ghost" id="signIn">Đăng nhập</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Xin chào!</h1>
+                    <p>Chào mừng bạn đã đến với trung tâm gia sư uy tín nhất Việt Nam, đăng kí để nhận ưu đãi mới nhất nhé !</p>
+                    <button class="ghost" id="signUp">Đăng kí</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="./script/reg/scripts.js"></script>
+<script>
+/*
+    
+    document.getElementById('registerButton').addEventListener('click', function () {
+      // Lấy giá trị từ các trường input
+      const usrname = document.getElementById('usrname_reg').value;
+      const email = document.getElementById('email_reg').value;
+      const password = document.getElementById('pass_reg').value;
+      const accountType = document.querySelector('input[name="accountType"]:checked').value;
+
+// Chuyển đổi giá trị của accountType thành số nguyên
+    const role = (accountType === 'tutor') ? 1 : 0;
+
+// Tạo đối tượng dữ liệu để gửi đến server
+    const data = {
+        usrname: usrname,
+        email: email,
+        password: password,
+        role: role 
+    };
+      // Gửi yêu cầu POST đến server
+      fetch('http://localhost:3000/api/register', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+})
+.then(response => response.json())
+.then(result => {
+    console.log(result);
+
+    if (result.error) {
+        // Nếu có lỗi từ server, hiển thị thông báo lỗi và xóa giá trị trên form
+        alert(result.error);
+        console.error(result.error);  // Log lỗi để kiểm tra
+        document.getElementById('usrname_reg').value = '';
+        document.getElementById('email_reg').value = '';
+        document.getElementById('pass_reg').value = '';
+    } else {
+        // Nếu không có lỗi, hiển thị thông báo thành công và thực hiện các hành động khác (nếu cần)
+        alert(result.message);
+        window.location.reload();
+        //window.location.href ='./index.html'
+    }
+})
+.catch(error => {
+    console.error('Error:', error);
+});
+      
+  });
+  
+//login
+document.getElementById('loginButton').addEventListener('click', function () {
+    // Lấy giá trị từ các trường input
+    const loginEmail = document.getElementById('loginEmail').value;
+    const loginPassword = document.getElementById('loginPassword').value;
+
+    // Tạo đối tượng dữ liệu để gửi đến server
+    const loginData = {
+        email: loginEmail,
+        password: loginPassword
+    };
+
+    // Gửi yêu cầu POST đến server
+    fetch('http://localhost:3000/api/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(loginData)
+    })
+    .then(response => response.json())
+    .then(result => {
+        console.log(result);
+
+        if (result.error) {
+            // Nếu có lỗi từ server, hiển thị thông báo lỗi và xóa giá trị trên form
+            alert(result.error);
+            console.error(result.error);  // Log lỗi để kiểm tra
+            document.getElementById('loginEmail').value = '';
+            document.getElementById('loginPassword').value = '';
+        } else {
+            // Nếu không có lỗi, hiển thị thông báo thành công và thực hiện các hành động khác (nếu cần)
+            alert('Đăng ký thành công- vui lòng đăng nhập =))');
+            window.location.reload();
+
+            
+              // Chuyển hướng đến trang index.html
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+});*/
+  </script>
+</body>
+
+</html>
